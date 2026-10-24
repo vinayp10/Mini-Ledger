@@ -1,0 +1,54 @@
+# ==========================================
+# MiniLedger Git Ignore Rules
+# Security & Credentials Protection
+# ==========================================
+
+# 1. Environment & Secret Credentials (CRITICAL)
+.env
+.env.*
+!.env.example
+*.local
+
+# 2. Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 3. Build & Compilation Outputs
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# 4. User Uploads & Media (Privacy)
+server/uploads/*
+!server/uploads/.gitkeep
+uploads/
+
+# 5. Mobile & Expo Artifacts
+.expo/
+.expo-shared/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# 6. IDE & Operating System Files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp

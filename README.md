@@ -1,85 +1,134 @@
-# 💸 MiniLedger — Full Stack Loan & Lending Tracking Platform
+# 💸 MiniLedger — Full Stack Peer Lending & Debt Tracking Platform
 > **Credsetu Technologies — Full Stack Development Internship Assessment Project**
 
-[![React 19](https://img.shields.io/badge/Frontend-React%2019.3-61dafb?style=for-the-badge&logo=react)](https://react.dev/)
-[![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![Database](https://img.shields.io/badge/Database-PostgreSQL%20%2B%20MongoDB-4169E1?style=for-the-badge&logo=postgresql)](https://www.postgresql.org/)
-[![Razorpay](https://img.shields.io/badge/Payments-Razorpay%20Gateway-0C2340?style=for-the-badge&logo=razorpay)](https://razorpay.com/)
-[![Firebase](https://img.shields.io/badge/Auth-Firebase%20Google-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
-[![Tests](https://img.shields.io/badge/Tests-32%2F32%20Passing%20(100%25)-success?style=for-the-badge&logo=jest)](https://jestjs.io/)
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="MiniLedger Hero Banner" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/Frontend-React%2019.3-61dafb?style=for-the-badge&logo=react" alt="React 19" /></a>
+  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=for-the-badge&logo=node.js" alt="Node.js" /></a>
+  <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/Database-PostgreSQL%20%2B%20MongoDB-4169E1?style=for-the-badge&logo=postgresql" alt="Database" /></a>
+  <a href="https://razorpay.com/"><img src="https://img.shields.io/badge/Payments-Razorpay%20Gateway-0C2340?style=for-the-badge&logo=razorpay" alt="Razorpay" /></a>
+  <a href="https://firebase.google.com/"><img src="https://img.shields.io/badge/Auth-Firebase%20Google-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase" /></a>
+  <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/Tests-32%2F32%20Passing%20(100%25)-success?style=for-the-badge&logo=jest" alt="Jest Tests" /></a>
+</p>
 
 ---
 
-## 📖 Overview
+## 🎯 Executive Summary & Purpose
 
-**MiniLedger** is a production-ready, full-stack financial management application crafted to track money lent to and borrowed from friends and colleagues. It features instant **Phone + OTP authentication**, **Google Sign-In**, **Razorpay live test checkout**, a **friend-to-friend settlement engine (+ Add / - Minus balance)**, automated **overdue debt highlighting in bold RED**, receipt screenshot uploads, and an **Admin & Refund management console**.
+**MiniLedger** is a production-grade financial ledger system engineered to eliminate misunderstandings when lending or borrowing money among friends, peers, and teams. 
 
-Designed with **intelligent zero-config fallback**, the backend seamlessly connects to PostgreSQL or MongoDB, automatically launching an embedded in-memory database engine (`mongodb-memory-server`) if external database services are stopped—guaranteeing **100% zero-setup execution** for any evaluator or interview panel.
-
----
-
-## ✨ Key Features & Highlights
-
-| Feature | Description | Status |
-| :--- | :--- | :---: |
-| 📱 **Dual Authentication** | Phone + Mock OTP (universal `123456` bypass) + Real Firebase Google 1-Click login | ✅ Ready |
-| 📊 **Dynamic Dashboard** | Animated summary cards: Total Lent, Total Repaid, Overdue Amount & Net Balance position | ✅ Ready |
-| 🚨 **Overdue Highlighting** | Real-time automated date checking that highlights overdue loans in **prominent RED** | ✅ Ready |
-| 💳 **Razorpay Integration** | Live payment order creation & signature verification for online partial/full repayment | ✅ Ready |
-| ⚖️ **Friend-to-Friend Settlement** | **`- Minus`** payment repayments (Cash/UPI) & **`+ Add`** additional debt splits | ✅ Ready |
-| 🧾 **Receipt Photo Attachments** | Multer multipart file upload for payment screenshots with an interactive viewer modal | ✅ Ready |
-| 🛡️ **Admin & Refund Console** | System-wide audit stream to handle transaction errors and execute instant ledger refunds | ✅ Ready |
-| 👤 **User Profile & Metrics** | Dedicated `/profile` route with lending recovery rate, stats, and verification badges | ✅ Ready |
-| 🧪 **100% Test Coverage** | 32/32 passing unit & integration tests written with Jest and Supertest | ✅ Ready |
+Designed for **100% zero-config evaluation**, the platform features a self-healing backend that automatically switches to an in-memory database if PostgreSQL or MongoDB services are stopped—ensuring that interviewers and reviewers can launch the application with zero installation headaches.
 
 ---
 
-## 🏗️ Architecture & Technology Stack
+## 🖼️ System Workflow & Lifecycle
 
+<p align="center">
+  <img src="docs/assets/workflow.svg" alt="MiniLedger Step-by-Step Workflow" width="100%" />
+</p>
+
+---
+
+## 🌟 Visual Feature Highlights
+
+### 1. Dual Authentication Flow
+- **Phone + Mock OTP Login**: Enter any 10-digit mobile number (`9824774956`).
+- **OTP Auto-Detection**: The 6-digit code is printed directly in the server console, displayed in a development simulation banner, or bypassed with test master code `123456`.
+- **Firebase Google Sign-In**: 1-Click OAuth authentication configured with credentials (`chat-app-a1381`).
+
+### 2. Intelligent Lending Dashboard
+- **Animated KPI Summary Cards**: Real-time counter metrics for **Total Lent**, **Total Repaid**, and **Overdue Amount**.
+- **Net Balance Position (`+₹ / -₹`)**: Instant indicator showing whether you are owed money overall or owe friends.
+- **Recovery Rate Bar**: Dynamic percentage progress tracker showing the ratio of money collected vs. money lent.
+
+### 3. Smart Debt Ledger with Overdue Highlighting
+- **Overdue Highlighted in Bold RED**: Any entry whose `dueDate` has passed without full repayment is automatically styled with high-priority red borders, red tags, and warning indicators.
+- **Filter Tabs**: Filter entries instantly by `All`, `Pending`, `Overdue`, and `Repaid`.
+- **Search Bar**: Real-time debounce searching by friend name or mobile number.
+
+### 4. Razorpay Online Payment Gateway
+- **Checkout Modal**: Embedded Razorpay Checkout SDK (`https://checkout.razorpay.com/v1/checkout.js`) with test key `rzp_test_TrgMH2nA0PnWUe`.
+- **Partial & Full Repayments**: Friends can pay specific partial sums or settle the entire remaining balance via UPI (GPay/PhonePe/Paytm), Cards, or NetBanking.
+- **Automatic Debt Deduction**: Verified payments automatically subtract from the active loan balance.
+
+### 5. Friend-to-Friend Settlement Adjustments
+- **`- Minus Payment`**: Record cash returned or manual UPI transfers with automatic debt deductions.
+- **`+ Add More`**: Append newly split shared expenses or additional borrowed sums directly to the friend's ledger.
+- **Attached Receipts**: Upload photographic proofs and view screenshots directly in an expandable modal viewer.
+
+### 6. Admin & Refund Management Portal (`/admin`)
+- **Audit Console**: Centralized view of all transactions, borrower details, and reference IDs across the system.
+- **1-Click Refund Execution**: Reverse accidental payments or dispute charges; automatically restores the friend's debt balance on the ledger and logs a Razorpay refund ID.
+
+---
+
+## 🚀 Step-by-Step Quick Start Guide
+
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/vinayp10/Mini-Ledger.git
+cd Mini-Ledger
 ```
-                             ┌──────────────────────────────────────┐
-                             │    React 19 Frontend Web Client      │
-                             │  (Vite 8, React Router v7, Lucide)   │
-                             └──────────────────┬───────────────────┘
-                                                │ REST API (Axios + JWT)
-                                                ▼
-                             ┌──────────────────────────────────────┐
-                             │       Node.js Express Server         │
-                             │  (TypeScript Definitions, Multer)    │
-                             └──────────┬────────────────┬──────────┘
-                                        │                │
-                     ┌──────────────────┴──┐          ┌──┴──────────────────┐
-                     │  Razorpay Payments  │          │   Firebase Auth     │
-                     │  (Orders & Refunds) │          │  (Google Sign-In)   │
-                     └─────────────────────┘          └─────────────────────┘
-                                        │
-                         ┌──────────────┴──────────────┐
-                         ▼                             ▼
-              PostgreSQL Relational DB        MongoDB / In-Memory
-              (`server/schema.sql`)           (Self-Healing Fallback)
+
+### Step 2: Configure Environment Files
+```bash
+# Frontend environment
+copy .env.example .env
+
+# Backend environment
+copy server\.env.example server\.env
 ```
 
-- **Frontend**: React 19.3, Vite 8, React Router DOM 7, Axios, Lucide React Icons, React Hot Toast, Date-fns.
-- **Backend**: Node.js (ES Modules), Express 4.21, TypeScript Type Declarations (`index.d.ts`), Mongoose 8.7, pg (PostgreSQL), Multer, JWT, Helmet, Morgan, Express-Validator.
-- **Payment Processing**: Razorpay SDK (`rzp_test_TrgMH2nA0PnWUe`).
-- **Security & Authentication**: Firebase Web SDK (`chat-app-a1381`), bcryptjs, jsonwebtoken, CORS.
+### Step 3: Launch the Backend Server (Port 5000)
+```bash
+cd server
+npm install
+npm run dev
+```
+> 🚀 Backend starts at **`http://localhost:5000`** with zero-config in-memory database auto-connected!
+
+### Step 4: Launch the Frontend Web App (Port 5173)
+In a second terminal window:
+```bash
+npm install
+npm run dev
+```
+> 🌐 The application will open automatically in your browser at **`http://localhost:5173`**!
 
 ---
 
-## 📁 Clean Project Structure
+## 🧪 Interview Testing Credentials
+
+| Parameter | Value | Description |
+| :--- | :--- | :--- |
+| **Phone Number** | `9824774956` | Accepts any 10-digit Indian phone number |
+| **OTP Code** | `123456` | Master bypass OTP (also logged in server terminal) |
+| **Google Sign-In** | 1-Click Button | Firebase Auth with project `chat-app-a1381` |
+| **Razorpay Key** | `rzp_test_TrgMH2nA0PnWUe` | Pre-configured test merchant key |
+| **Admin Panel** | Navigate to `/admin` | Audit stream & transaction refund console |
+
+---
+
+## 📁 Clean Repository Directory Structure
 
 ```
 MiniLedger/
+├── docs/assets/                      # Visual SVG banners and workflow diagrams
+│   ├── banner.svg                    # Hero graphic with metric cards
+│   └── workflow.svg                  # 4-stage lifecycle diagram
 ├── .env.example                      # Safe public environment template
 ├── .gitignore                        # Strict rules excluding credentials & build files
-├── index.html                        # Entry HTML with Razorpay Checkout SDK
-├── package.json                      # Frontend dependencies & Vite scripts
-├── PROJECT_ROOT_DOCUMENTATION.html   # Complete printable PDF dossier for interview submission
-├── README.md                         # Project documentation
-├── vite.config.js                    # Vite configuration
+├── index.html                        # Root HTML with Razorpay Checkout SDK
+├── package.json                      # React 19 + Vite dependencies
+├── PROJECT_ROOT_DOCUMENTATION.html   # Complete printable PDF dossier for interview
+├── README.md                         # Visual documentation with diagrams
+├── vite.config.js                    # Vite bundler configuration
 │
 ├── src/                              # 🌐 React 19 Frontend Web Application
-│   ├── api/                          # Axios configuration with JWT interceptors
+│   ├── api/                          # Axios configured with interceptors & JWT
 │   │   └── axiosConfig.js
 │   ├── config/                       # Firebase configuration (chat-app-a1381)
 │   │   └── firebase.js
@@ -130,124 +179,61 @@ MiniLedger/
 
 ---
 
-## 🚀 Quick Start Guide (Run in 2 Minutes)
-
-### Prerequisites
-- Node.js (v18 or higher)
-- Git
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/vinayp10/Mini-Ledger.git
-cd Mini-Ledger
-```
-
-### 2. Configure Environment Files
-Copy the `.env.example` templates to `.env`:
-
-```bash
-# Frontend environment
-copy .env.example .env
-
-# Backend environment
-copy server\.env.example server\.env
-```
-
-### 3. Start the Backend API Server
-```bash
-cd server
-npm install
-npm run dev
-```
-> 🚀 Backend starts at **`http://localhost:5000`** with zero-config in-memory database auto-connected!
-
-### 4. Start the Frontend Client
-In a new terminal:
-```bash
-npm install
-npm run dev
-```
-> 🌐 Frontend starts at **`http://localhost:5173`** and opens automatically in your browser!
-
----
-
-## 🔑 Demo & Interview Testing Credentials
-
-| Method | Value / Action | Notes |
-| :--- | :--- | :--- |
-| **Phone Number** | `9824774956` | Works with any 10-digit number |
-| **OTP Code** | `123456` | Master bypass OTP + code is printed in the server console |
-| **Google Sign-In** | 1-Click Button | Powered by Firebase project `chat-app-a1381` |
-| **Razorpay Key** | `rzp_test_TrgMH2nA0PnWUe` | Pre-configured test key for seamless checkout |
-| **Admin Panel** | Click **"Admin & Refunds"** | Direct route at `/admin` to test refunds & reversals |
-
----
-
 ## 📡 REST API Reference
 
-All protected routes require the header: `Authorization: Bearer <JWT_TOKEN>`.
-
-### Authentication Endpoints
-- `POST /api/auth/send-otp` — Request a 6-digit OTP for a phone number.
-- `POST /api/auth/verify-otp` — Verify OTP and receive JWT authentication token.
-- `POST /api/auth/google` — Authenticate using Firebase Google credentials.
-
-### Loan & Ledger Endpoints
-- `GET /api/loans/summary` — Returns financial overview (`totalLent`, `totalRepaid`, `overdueAmount`, `netBalance`).
-- `GET /api/loans` — Retrieve all loans for the logged-in user (supports `?status=pending|repaid|overdue`).
-- `POST /api/loans` — Create a new loan entry (`friendName`, `amount`, `dueDate`, `type`, `friendPhone`, `notes`).
-- `PATCH /api/loans/:id/repay` — Mark full balance settled and set `repaidDate = now`.
-- `DELETE /api/loans/:id` — Delete a loan entry and remove its receipt attachment.
-- `POST /api/loans/:id/receipt` — Upload a payment receipt or transfer screenshot (Multer).
-- `GET /api/loans/:id/receipt` — Retrieve the uploaded receipt image.
-
-### Payment & Settlement Endpoints
-- `POST /api/loans/:id/payment/order` — Create Razorpay order in paise for partial or full online repayment.
-- `POST /api/loans/:id/payment/verify` — Verify Razorpay payment signature and automatically deduct from debt.
-- `POST /api/loans/:id/adjustment` — Record friend-to-friend payments: **`- Minus`** repayment or **`+ Add`** debt.
-
-### Admin & Refund Endpoints
-- `GET /api/admin/overview` — System-wide user metrics, loan volume, and refund statistics.
-- `GET /api/admin/payments` — Global audit trail of all transactions across all users.
-- `POST /api/admin/refund` — Reverse a payment, restore ledger balance, and trigger a Razorpay gateway refund.
+| Method | Endpoint | Description | Request Body / Parameters |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/auth/send-otp` | Request 6-digit phone OTP | `{ "phone": "9824774956" }` |
+| `POST` | `/api/auth/verify-otp` | Verify OTP & receive JWT | `{ "phone": "9824774956", "otp": "123456" }` |
+| `POST` | `/api/auth/google` | Verify Google Auth token | `{ "idToken": "..." }` |
+| `GET` | `/api/loans/summary` | Summary & Net Balance | Bearer Token header |
+| `GET` | `/api/loans` | List loans with filters | Query: `?status=pending\|overdue\|repaid` |
+| `POST` | `/api/loans` | Create loan entry | `{ friendName, amount, dueDate, type, notes }` |
+| `PATCH`| `/api/loans/:id/repay` | Mark loan fully settled | URL parameter `:id` |
+| `DELETE`| `/api/loans/:id` | Delete loan record | URL parameter `:id` |
+| `POST` | `/api/loans/:id/receipt` | Upload receipt photo | Multipart form with `receipt` image |
+| `POST` | `/api/loans/:id/payment/order` | Create Razorpay order | `{ "amount": 2500 }` |
+| `POST` | `/api/loans/:id/payment/verify` | Verify Razorpay payment | `{ razorpay_order_id, razorpay_payment_id }` |
+| `POST` | `/api/loans/:id/adjustment` | Record friend +/- payment | Multipart form: `amount, action: 'minus'\|'add', mode` |
+| `GET` | `/api/admin/overview` | System financial metrics | Admin Bearer Token |
+| `GET` | `/api/admin/payments` | Global transaction stream | Admin Bearer Token |
+| `POST` | `/api/admin/refund` | Execute ledger & Razorpay refund | `{ loanId, paymentDbId, refundAmount, reason }` |
 
 ---
 
-## 🧪 Automated Testing (32/32 Passing)
+## 🧪 Automated Test Suite (32/32 Passing)
 
-The backend features an isolated integration test suite written with **Jest** and **Supertest**, evaluating all authentication flows, validation rules, loan operations, and overdue calculations.
-
-To run tests:
-```bash
-cd server
-npm test
-```
-
-**Results:**
 ```text
  PASS  __tests__/loans.test.js
  PASS  __tests__/auth.test.js
 
 Test Suites: 2 passed, 2 total
-Tests:       32 passed, 32 total (100%)
+Tests:       32 passed, 32 total (100% pass rate)
 Snapshots:   0 total
 Time:        8.37 s
 ```
 
----
-
-## 📄 Interview Dossier & PDF Export
-
-A complete, formatted interview submission dossier is included in the project:
-- Open [`PROJECT_ROOT_DOCUMENTATION.html`](file:///c:/Users/Admin/Desktop/Vinay1/TranscationRelate_project_internship/MiniLedger/PROJECT_ROOT_DOCUMENTATION.html) in any browser.
-- Click the purple **"🖨️ Save as PDF"** button (or press `Ctrl + P`) to export a print-optimized document ready for submission.
+To run the automated tests:
+```bash
+cd server
+npm test
+```
 
 ---
 
-## 👨‍💻 Author & Submission Details
+## 📄 Printable Interview PDF Dossier
+
+To view or print the comprehensive candidate interview dossier:
+1. Open [`PROJECT_ROOT_DOCUMENTATION.html`](file:///c:/Users/Admin/Desktop/Vinay1/TranscationRelate_project_internship/MiniLedger/PROJECT_ROOT_DOCUMENTATION.html) in your browser.
+2. Click the purple **"🖨️ Save as PDF"** button (or press `Ctrl + P`).
+3. Save the formatted submission dossier directly to your computer.
+
+---
+
+## 👨‍💻 Submission Details
 
 - **Candidate**: Vinay Panchal
 - **GitHub**: [@vinayp10](https://github.com/vinayp10)
 - **Repository**: [https://github.com/vinayp10/Mini-Ledger](https://github.com/vinayp10/Mini-Ledger)
 - **Role**: Full Stack Development Intern
-- **Company Assessment**: Credsetu Technologies
+- **Evaluation Company**: Credsetu Technologies

@@ -237,3 +237,4 @@ To view or print the comprehensive candidate interview dossier:
 - **Repository**: [https://github.com/vinayp10/Mini-Ledger](https://github.com/vinayp10/Mini-Ledger)
 - **Role**: Full Stack Development Intern
 - **Evaluation Company**: Credsetu Technologies
+- **Evaluation Company**: Credsetu Technologies

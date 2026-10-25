@@ -5,8 +5,19 @@
 # Environment & Credentials
 .env
 .env.*
+*.env
+**/.env
+**/.env.*
 !.env.example
 *.local
+*.pem
+*.key
+credentials.json
+serviceAccountKey.json
+
+# Server uploads
+server/uploads/*
+!server/uploads/.gitkeep
 
 # Node modules
 node_modules/

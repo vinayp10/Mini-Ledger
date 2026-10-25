@@ -8,8 +8,8 @@ import Loan from '../models/Loan.js';
 
 // Lazy initialize Razorpay instance
 const getRazorpayInstance = () => {
-  const key_id = process.env.RAZORPAY_KEY_ID || 'rzp_test_TrgMH2nA0PnWUe';
-  const key_secret = process.env.RAZORPAY_KEY_SECRET || 'dummy_secret_for_test';
+  const key_id = process.env.RAZORPAY_KEY_ID || '';
+  const key_secret = process.env.RAZORPAY_KEY_SECRET || '';
   return new Razorpay({ key_id, key_secret });
 };
 
@@ -444,7 +444,7 @@ export const createRazorpayOrder = async (req, res) => {
       });
     }
 
-    const key_id = process.env.RAZORPAY_KEY_ID || 'rzp_test_TrgMH2nA0PnWUe';
+    const key_id = process.env.RAZORPAY_KEY_ID || '';
     const razorpay = getRazorpayInstance();
 
     let order = null;

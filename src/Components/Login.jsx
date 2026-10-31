@@ -121,7 +121,7 @@ export default function Login() {
       } else {
         // Fallback for local sandbox domains where Google popups might be blocked
         toast('Using verified Google authentication fallback...', { icon: '⚡' });
-        await handleDirectGoogleAuth('vinay.credsetu@gmail.com', 'Vinay Kumar');
+        await handleDirectGoogleAuth('demo.user@example.com', 'Demo User');
       }
     } finally {
       setLoading(false);
@@ -132,7 +132,7 @@ export default function Login() {
    * Direct Verified Google Account Fallback
    */
   const handleDirectGoogleAuth = async (emailToUse, nameToUse) => {
-    const targetEmail = (emailToUse || googleEmail || 'vinay.credsetu@gmail.com').trim().toLowerCase();
+    const targetEmail = (emailToUse || googleEmail || 'demo.user@example.com').trim().toLowerCase();
     const targetName = (nameToUse || googleName || targetEmail.split('@')[0]);
 
     if (!targetEmail || !targetEmail.includes('@')) {

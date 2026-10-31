@@ -188,7 +188,7 @@ export default function Profile() {
               </div>
               <div className="info-item">
                 <span className="info-k">Project:</span>
-                <span className="info-v">Credsetu Technologies Assessment</span>
+                <span className="info-v">Full Stack Peer-to-Peer Ledger</span>
               </div>
               <div className="info-item">
                 <span className="info-k">Frontend:</span>

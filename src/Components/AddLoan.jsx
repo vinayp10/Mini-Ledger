@@ -219,7 +219,7 @@ export default function AddLoan() {
                 type="tel"
                 id="friendPhone"
                 name="friendPhone"
-                placeholder="e.g. 9824774956"
+                placeholder="e.g. 9876543210"
                 maxLength="10"
                 value={formData.friendPhone}
                 onChange={handleChange}

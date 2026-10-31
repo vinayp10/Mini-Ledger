@@ -148,7 +148,7 @@ export default function LoanList() {
         prefill: {
           name: user?.name || 'MiniLedger User',
           email: user?.email || '',
-          contact: user?.phone ? `+91${user.phone}` : '9824774956',
+          contact: user?.phone ? `+91${user.phone}` : '9876543210',
         },
         theme: {
           color: '#4f46e5',

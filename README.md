@@ -1,5 +1,5 @@
 # 💸 MiniLedger — Full Stack Peer Lending & Debt Tracking Platform
-> **Credsetu Technologies — Full Stack Development Internship Assessment Project**
+> **A modern, production-ready peer-to-peer lending and debt reconciliation platform.**
 
 <p align="center">
   <img src="docs/assets/banner.svg" alt="MiniLedger Hero Banner" width="100%" />
@@ -16,11 +16,18 @@
 
 ---
 
-## 🎯 Executive Summary & Purpose
+## 🎯 Project Overview & Purpose
 
-**MiniLedger** is a production-grade financial ledger system engineered to eliminate misunderstandings when lending or borrowing money among friends, peers, and teams. 
+**MiniLedger** is a modern, production-grade financial ledger application designed to track, manage, and reconcile personal loans, borrowed funds, and shared peer expenses. Whether managing IOUs among friends, tracking group repayments, or maintaining a personal lending history, MiniLedger provides an intuitive interface with transparent financial summaries, real-time balance calculations, and seamless payment tracking.
 
-Designed for **100% zero-config evaluation**, the platform features a self-healing backend that automatically switches to an in-memory database if PostgreSQL or MongoDB services are stopped—ensuring that interviewers and reviewers can launch the application with zero installation headaches.
+### Key Highlights
+- **Zero-Config Developer Experience**: Automatic fallback to an in-memory database if PostgreSQL or MongoDB services are offline, allowing instant local testing without database setup.
+- **Dual Authentication**: Support for both instant Mobile Number + OTP login and Google OAuth authentication.
+- **Visual Status Management**: Automatic overdue loan calculation with high-visibility color-coded alerts and dynamic recovery rate progress tracking.
+- **Payment & Settlement Flexibility**: Direct online repayments via Razorpay integration, along with manual cash adjustments (`+ Add More` / `- Minus Payment`) and receipt image verification.
+- **Audit & Admin Controls**: Administrative overview to audit global transaction records and process refunds. 
+
+
 
 ---
 
@@ -35,9 +42,9 @@ Designed for **100% zero-config evaluation**, the platform features a self-heali
 ## 🌟 Visual Feature Highlights
 
 ### 1. Dual Authentication Flow
-- **Phone + Mock OTP Login**: Enter any 10-digit mobile number (`9824774956`).
+- **Phone + Mock OTP Login**: Enter any 10-digit dummy mobile number (e.g., `9876543210`).
 - **OTP Auto-Detection**: The 6-digit code is printed directly in the server console, displayed in a development simulation banner, or bypassed with test master code `123456`.
-- **Firebase Google Sign-In**: 1-Click OAuth authentication configured with credentials (`chat-app-a1381`).
+- **Google Sign-In**: 1-Click OAuth authentication with instant demo account fallback.
 
 ### 2. Intelligent Lending Dashboard
 - **Animated KPI Summary Cards**: Real-time counter metrics for **Total Lent**, **Total Repaid**, and **Overdue Amount**.
@@ -100,13 +107,13 @@ npm run dev
 
 ---
 
-## 🧪 Interview Testing Credentials
+## 🧪 Demo & Testing Credentials
 
 | Parameter | Value | Description |
 | :--- | :--- | :--- |
-| **Phone Number** | `9824774956` | Accepts any 10-digit Indian phone number |
+| **Phone Number** | `9876543210` | Accepts any dummy 10-digit mobile number |
 | **OTP Code** | `123456` | Master bypass OTP (also logged in server terminal) |
-| **Google Sign-In** | 1-Click Button | Firebase Auth with project `chat-app-a1381` |
+| **Google Sign-In** | 1-Click Button | Instant demo login / Google OAuth |
 | **Razorpay Key** | `rzp_test_TrgMH2nA0PnWUe` | Pre-configured test merchant key |
 | **Admin Panel** | Navigate to `/admin` | Audit stream & transaction refund console |
 
@@ -123,14 +130,14 @@ MiniLedger/
 ├── .gitignore                        # Strict rules excluding credentials & build files
 ├── index.html                        # Root HTML with Razorpay Checkout SDK
 ├── package.json                      # React 19 + Vite dependencies
-├── PROJECT_ROOT_DOCUMENTATION.html   # Complete printable PDF dossier for interview
+├── PROJECT_ROOT_DOCUMENTATION.html   # Complete printable PDF architectural dossier
 ├── README.md                         # Visual documentation with diagrams
 ├── vite.config.js                    # Vite bundler configuration
 │
 ├── src/                              # 🌐 React 19 Frontend Web Application
 │   ├── api/                          # Axios configured with interceptors & JWT
 │   │   └── axiosConfig.js
-│   ├── config/                       # Firebase configuration (chat-app-a1381)
+│   ├── config/                       # Firebase & OAuth configuration
 │   │   └── firebase.js
 │   ├── context/                      # Global AuthContext (Token, Phone, Google User)
 │   │   └── AuthContext.jsx
@@ -183,8 +190,8 @@ MiniLedger/
 
 | Method | Endpoint | Description | Request Body / Parameters |
 | :--- | :--- | :--- | :--- |
-| `POST` | `/api/auth/send-otp` | Request 6-digit phone OTP | `{ "phone": "9824774956" }` |
-| `POST` | `/api/auth/verify-otp` | Verify OTP & receive JWT | `{ "phone": "9824774956", "otp": "123456" }` |
+| `POST` | `/api/auth/send-otp` | Request 6-digit phone OTP | `{ "phone": "9876543210" }` |
+| `POST` | `/api/auth/verify-otp` | Verify OTP & receive JWT | `{ "phone": "9876543210", "otp": "123456" }` |
 | `POST` | `/api/auth/google` | Verify Google Auth token | `{ "idToken": "..." }` |
 | `GET` | `/api/loans/summary` | Summary & Net Balance | Bearer Token header |
 | `GET` | `/api/loans` | List loans with filters | Query: `?status=pending\|overdue\|repaid` |
@@ -221,20 +228,20 @@ npm test
 
 ---
 
-## 📄 Printable Interview PDF Dossier
+## 📄 Project Documentation & Architecture Dossier
 
-To view or print the comprehensive candidate interview dossier:
+To view or print the comprehensive architectural and system documentation:
 1. Open [`PROJECT_ROOT_DOCUMENTATION.html`](file:///c:/Users/Admin/Desktop/Vinay1/TranscationRelate_project_internship/MiniLedger/PROJECT_ROOT_DOCUMENTATION.html) in your browser.
 2. Click the purple **"🖨️ Save as PDF"** button (or press `Ctrl + P`).
-3. Save the formatted submission dossier directly to your computer.
+3. Save or export the complete project report directly.
 
 ---
 
-## 👨‍💻 Submission Details
+## 👨‍💻 Project Details & Maintainer
 
-- **Candidate**: Vinay Panchal
+- **Developer**: Vinay Panchal
 - **GitHub**: [@vinayp10](https://github.com/vinayp10)
 - **Repository**: [https://github.com/vinayp10/Mini-Ledger](https://github.com/vinayp10/Mini-Ledger)
-- **Role**: Full Stack Development Intern
-- **Evaluation Company**: Credsetu Technologies
-- **Evaluation Company**: Credsetu Technologies
+- **Role**: Full Stack Developer
+- **Stack**: React 19, Node.js, Express, PostgreSQL / MongoDB, Vite
+- **License**: MIT

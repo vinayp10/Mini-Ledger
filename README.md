@@ -57,7 +57,7 @@
 - **Search Bar**: Real-time debounce searching by friend name or mobile number.
 
 ### 4. Razorpay Online Payment Gateway
-- **Checkout Modal**: Embedded Razorpay Checkout SDK (`https://checkout.razorpay.com/v1/checkout.js`) with test key `rzp_test_TrgMH2nA0PnWUe`.
+- **Checkout Modal**: Embedded Razorpay Checkout SDK (`https://checkout.razorpay.com/v1/checkout.js`) with test sandbox keys.
 - **Partial & Full Repayments**: Friends can pay specific partial sums or settle the entire remaining balance via UPI (GPay/PhonePe/Paytm), Cards, or NetBanking.
 - **Automatic Debt Deduction**: Verified payments automatically subtract from the active loan balance.
 
@@ -114,7 +114,7 @@ npm run dev
 | **Phone Number** | `9876543210` | Accepts any dummy 10-digit mobile number |
 | **OTP Code** | `123456` | Master bypass OTP (also logged in server terminal) |
 | **Google Sign-In** | 1-Click Button | Instant demo login / Google OAuth |
-| **Razorpay Key** | `rzp_test_TrgMH2nA0PnWUe` | Pre-configured test merchant key |
+| **Razorpay Key** | `rzp_test_...` | Pre-configured test merchant key |
 | **Admin Panel** | Navigate to `/admin` | Audit stream & transaction refund console |
 
 ---
